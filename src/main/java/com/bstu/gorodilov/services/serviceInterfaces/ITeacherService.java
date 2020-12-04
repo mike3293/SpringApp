@@ -1,10 +1,10 @@
 package com.bstu.gorodilov.services.serviceInterfaces;
 
 import com.bstu.gorodilov.model.Subject;
+import com.bstu.gorodilov.model.Teacher;
 
 import java.util.List;
 
-public interface ISubjectService {
-    List<Subject> findAll();
-    List<Subject> findBySubjectName(String subject);
+public interface ITeacherService {
+    List<Teacher> findAll();
 }

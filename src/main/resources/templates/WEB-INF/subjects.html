@@ -9,10 +9,12 @@
 <div class="container">
     <table class ="container" border="1">
         <tr>
-            <th><h1>Title</h1></th>
+            <th><h1>mName</h1></th>
+            <th><h1>Name</h1></th>
         </tr>
         <tr th:each ="album : ${albums}">
-            <td th:utext="${album.subject}">...</td>
+            <td th:utext="${album.studentMiddleName}">...</td>
+            <td th:utext="${album.studentName}">...</td>
         </tr>
     </table>
 </div>
