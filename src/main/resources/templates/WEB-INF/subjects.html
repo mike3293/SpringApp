@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>List</title>
+</head>
+<body>
+<h1>Subjects List</h1>
+<div class="container">
+    <table class ="container" border="1">
+        <tr>
+            <th><h1>Title</h1></th>
+        </tr>
+        <tr th:each ="album : ${albums}">
+            <td th:utext="${album.subject}">...</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
