@@ -1,9 +1,10 @@
 package com.bstu.gorodilov.controller;
 
-import com.bstu.gorodilov.model.Student;
 import com.bstu.gorodilov.model.Subject;
-import com.bstu.gorodilov.services.StudentService;
+import com.bstu.gorodilov.model.User;
+import com.bstu.gorodilov.services.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,14 +16,11 @@ import java.util.List;
 
 @Slf4j
 @Controller
-public class IStudentsController {
-    public IStudentsController(com.bstu.gorodilov.services.SubjectService subjectService, StudentService studentService) {
-        this.SubjectService = subjectService;
-        this.studentService = studentService;
-    }
-
+public class IUsersController {
+    @Autowired
     private com.bstu.gorodilov.services.SubjectService SubjectService;
-    private com.bstu.gorodilov.services.StudentService studentService;
+    @Autowired
+    private com.bstu.gorodilov.services.UserService userService;
     private static List<Subject> albums = new ArrayList<>();
 
     static {
@@ -50,7 +48,7 @@ public class IStudentsController {
     public ModelAndView personList(Model model) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("subjects");
-        List<Student> albums = this.studentService.findByStudentMiddleName("mike");
+        List<User> albums = this.userService.findAll();
         model.addAttribute("albums", albums);
         log.info("/subjects was called(GET)");
         return modelAndView;
