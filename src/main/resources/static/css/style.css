@@ -1,0 +1,117 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:700,800);
+
+
+:focus { outline: none; }
+::-webkit-input-placeholder { color: #DEDFDF; }
+::-moz-placeholder { color: #DEDFDF; }
+:-moz-placeholder { color: #DEDFDF; }
+::-ms-input-placeholder { color: #DEDFDF; }
+
+body {
+    background: #6ED0F6;
+    color: #fff;
+
+}
+
+
+
+.for {
+    width: 370px;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
+input[type="number"] {
+    vertical-align: top;
+    outline: none;
+    padding: 0;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 10px;
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+
+input[type=radio] { display: none; }
+
+label {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 800;
+    opacity: .5;
+    text-transform: uppercase;
+}
+label:hover {
+    transition: all .3s cubic-bezier(.6,0,.4,1);
+    opacity: 1;
+}
+input[type=radio]:checked + label { opacity: 1; }
+
+input[type=text],
+input[type=password] {
+    background: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-family: 'Raleway', sans-serif;
+    height: 42px;
+    width: 99.5%;
+    margin-top: 10px;
+    opacity: 1;
+    text-indent: 20px;
+    transition: all .2s ease-in-out;
+}
+
+button {
+    background: #079BCF;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    font-size: 17px;
+    height: 42px;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+    transition: all .3s cubic-bezier(.6,0,.4,1);
+}
+button span {
+    display: block;
+    line-height: 72px;
+    position: relative;
+    top: -2px;
+    transform: translate3d(0,0,0);
+}
+
+
+
+
+
+/*select*/
+
+.select,
+.label {
+    color: #414141;
+    display: block;
+    font: 400 17px/2em 'Source Sans Pro', sans-serif;
+}
+
+.select {
+    width: 100%;
+    top: 0;
+    padding: 5px 0;
+    height: 40px;
+
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    background: none transparent;
+    border: 0 none;
+}
