@@ -2,10 +2,7 @@ package com.bstu.gorodilov.rest;
 
 import com.bstu.gorodilov.Validator.StudentValidator;
 import com.bstu.gorodilov.Validator.TeacherValidator;
-import com.bstu.gorodilov.dto.AdminUserDto;
-import com.bstu.gorodilov.dto.AuthenticationRequestDto;
-import com.bstu.gorodilov.dto.StudentDto;
-import com.bstu.gorodilov.dto.TeacherDto;
+import com.bstu.gorodilov.dto.*;
 import com.bstu.gorodilov.exceptions.UserValidationException;
 import com.bstu.gorodilov.forms.RegistrationStudentModel;
 import com.bstu.gorodilov.forms.RegistrationTeacherModel;
