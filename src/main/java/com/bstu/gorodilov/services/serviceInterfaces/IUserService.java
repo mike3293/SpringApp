@@ -1,5 +1,6 @@
 package com.bstu.gorodilov.services.serviceInterfaces;
 
+import com.bstu.gorodilov.dto.TeacherDto;
 import com.bstu.gorodilov.model.User;
 
 import java.util.List;
@@ -11,5 +12,5 @@ public interface IUserService {
     User findByEmail(String userName);
     User findById(Long id);
     void delete(Long id);
-
+    List<User> getTeachers();
 }
