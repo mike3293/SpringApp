@@ -3,44 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    <script th:src="@{/js/TeacherScript.js}"></script>
+    <script th:src="@{/js/teacherScript.js}"></script>
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-inverse" style="background-color: rgb(170, 159, 138);">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" id="username" href="/" style="color: #272125"></a>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a onclick="logout()" style="color: #272125"><img height="20px" width="20px" th:src="@{/exit.svg}" alt="За стеклом"> Logout</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
+<nav class="common-header">
+    <a id="username" href="/"></a>
+    <a onclick="logout()" style="display: flex;"><img height="20px" width="20px" th:src="@{/exit.svg}">Sign out</a>
+</nav>
 <main>
-    <div style="width: 20%;margin:0 auto;">
-        <select id="faculties"  style="margin-top: 20px; margin-bottom: 10px; background-color: rgba(255,255,255,.2); color: white;" class="form-control">
+    <div>
+        <select id="faculties">
         </select>
-        <select id="subjects"  style="margin-top: 20px; margin-bottom: 10px; background-color: rgba(255,255,255,.2); color: white;" class="form-control">
+        <select id="subjects">
         </select>
-        <input style="margin-top: 20px; margin-bottom: 10px"  id="userGroup" type="number" placeholder="Enter userGroup" value="1" min="1" max="20">
-        <input style="margin-top: 20px; margin-bottom: 10px"  id="userCourse" type="number" placeholder="Enter userGroup" value="1" min="1" max="20">
-        <button content="Register"  onclick="setStudents()" type="submit">
+        <input id="userGroup" type="number" placeholder="Enter userGroup" value="1" min="1" max="20">
+        <input id="userCourse" type="number" placeholder="Enter userGroup" value="1" min="1" max="20">
+        <button onclick="setStudents()" type="submit">
             Show
         </button>
-
     </div>
-    <div style="display: flex">
-        <select id="students" style="margin: 20px 30px 10px;background-color: rgba(255,255,255,.2); color: white;" class="form-control">
+    <h4 id="subj">(select students)</h4>
+    <div class="vertical-container" style="width: 20%">
+        <select id="students">
         </select>
-        <input style="margin: 20px 30px 10px;"  id="mark" type="number" placeholder="Enter userGroup" value="1" min="1" max="20">
-        <input style="margin: 20px 30px 10px;" id="description" class="white" type="text" placeholder="Enter description">
-        <button content="Register" style="margin: 20px 30px 10px;"  onclick="rate()" type="submit">
+        <input id="mark" type="number" placeholder="Enter mark" value="1" min="1" max="20">
+        <input id="description"  type="text" placeholder="Enter description">
+        <button onclick="rate()" type="submit">
             give a rating
         </button>
+        <div id="res" style="color: darkgoldenrod"></div>
     </div>
-    <h2 id="subj" style="text-align: center"></h2>
 </main>
 </body>
 </html>

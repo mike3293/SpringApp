@@ -1,4 +1,9 @@
-
+function renderMark(el) {
+    return "        <div style='display: flex;'>\n" +
+        "            <h5>Оценка: "+ el.mark +"</h5>\n" +
+        "            <h5 style='margin-left: 20px'>Описание: "+ el.discription +"</h5>\n" +
+        "        </div>"
+}
 
 async function setFaculties() {
     let jwt = localStorage.getItem("jwt");
@@ -9,7 +14,7 @@ async function setFaculties() {
             headers: {'Authorization': 'Bearer_' + jwt,'Content-Type': 'application/json', 'Accept': 'application/json'}
         });
     let data = await response.json();
-    console.log(data)
+    console.log(data);
     var select = document.getElementById("subjects");
 
     var i = 1;
@@ -58,10 +63,7 @@ getMarks = async () => {
     let content = document.getElementById("content");
     content.innerHTML = "";
     user_info_json.content.forEach(el => {
-        content.innerHTML += "        <div style=\"display: flex;justify-content: center\">\n" +
-                            "            <h5>Оценка: "+ el.mark +"</h5>\n" +
-                            "            <h5 style=\"margin-left: 40px\">Описание: "+ el.discription +"</h5>\n" +
-                            "        </div>"
+        content.innerHTML += renderMark(el);
     });
 
     checkDisabled(user_info_json);
@@ -76,7 +78,10 @@ prev = async () =>{
     let username = document.getElementById("username").textContent;
     let sel2 = document.getElementById("subjects");
     let subject = sel2.options[sel2.selectedIndex].textContent;
-    page--;
+    if(page > 0) {
+        page--;
+    }
+    console.log(page);
     let user_info = await fetch(`/api/v1/students/getUserMarks?username=${username}&subject=${subject}&page=${page}`,
         {
             method: 'GET',
@@ -87,10 +92,7 @@ prev = async () =>{
     let content = document.getElementById("content");
     content.innerHTML = "";
     user_info_json.content.forEach(el => {
-        content.innerHTML += "        <div style=\"display: flex;justify-content: center\">\n" +
-            "            <h5>Оценка: "+ el.mark +"</h5>\n" +
-            "            <h5 style=\"margin-left: 40px\">Описание: "+ el.discription +"</h5>\n" +
-            "        </div>"
+        content.innerHTML += renderMark(el);
     });
     checkDisabled(user_info_json);
 };
@@ -115,10 +117,7 @@ next = async () =>{
     let content = document.getElementById("content");
     content.innerHTML = "";
     user_info_json.content.forEach(el => {
-        content.innerHTML += "        <div style=\"display: flex;justify-content: center\">\n" +
-            "            <h5>Оценка: "+ el.mark +"</h5>\n" +
-            "            <h5 style=\"margin-left: 40px\">Описание: "+ el.discription +"</h5>\n" +
-            "        </div>"
+        content.innerHTML += renderMark(el);
     });
     checkDisabled(user_info_json);
 };
@@ -127,16 +126,21 @@ checkDisabled = (user_info_json) =>  {
     document.getElementById("previous").classList.add("disabled");
     document.getElementById("next").classList.add("disabled");
     if(page == 0) {
-        document.getElementById("previous").classList.add("disabled");
+        document.getElementById("previous").disabled = true;
     }else {
-        document.getElementById("previous").classList.remove("disabled");
+        document.getElementById("previous").disabled = false;
     }
 
-    if(page == user_info_json.totalPages -1 ){
-        document.getElementById("next").classList.add("disabled");
+    if(page == user_info_json.totalPages - 1){
+        document.getElementById("next").disabled = true;
     }else{
-        document.getElementById("next").classList.remove("disabled");
+        document.getElementById("next").disabled = false;
     }
+};
+
+logout = () => {
+    localStorage.clear();
+    document.location.href = "/login";
 }
 
 load();

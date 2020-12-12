@@ -14,75 +14,67 @@ load = async () => {
     let length = Object.keys(user_info_json).length;
     document.getElementById("username").innerHTML = user_info_json.username;
 
-    let ulk = document.getElementById("keys");
-    let ulv = document.getElementById("values");
+    let details = document.getElementById("list");
 
-    ulk.innerHTML += "<li>username</li>"
+    details.innerHTML += "<div>Username: </div>";
+    details.innerHTML += "<div>" + user_info_json.username + "</div>";
 
-    ulv.innerHTML += "<li class=\"inf_li\">" + user_info_json.username + "</li>";
-
-    console.log(user_info_json)
+    console.log(user_info_json);
     //admin
     if(length == 8)
     {
-        console.log("qq");
-        ulk.innerHTML += "<li>First Name</li>"
-        ulk.innerHTML += "<li>Surname</li>"
-        ulk.innerHTML += "<li>Email</li>"
-        ulk.innerHTML += "<li>Middle Name</li>"
-        ulk.innerHTML += "<li>Faculty</li>"
-        ulk.innerHTML += "<li>Course</li>"
-        ulk.innerHTML += "<li>Group</li>"
+        details.innerHTML += "<div>First Name: </div>";
+        details.innerHTML += "<div>" + user_info_json.firstName + "</div>";
+        details.innerHTML += "<div>Surname: </div>";
+        details.innerHTML += "<div>" + user_info_json.lastName + "</div>";
+        details.innerHTML += "<div>Email: </div>";
+        details.innerHTML += "<div>" + user_info_json.email + "</div>";
+        details.innerHTML += "<div>Middle Name: </div>";
+        details.innerHTML += "<div>" + user_info_json.middleName + "</div>";
+        details.innerHTML += "<div>Faculty: </div>";
+        details.innerHTML += "<div>" + user_info_json.facultyName.faculty + "</div>";
+        details.innerHTML += "<div>Course: </div>";
+        details.innerHTML += "<div>" + user_info_json.userCourse + "</div>";
+        details.innerHTML += "<div>Group: </div>";
+        details.innerHTML += "<div>" + user_info_json.userGroup + "</div>";
 
-        ulv.innerHTML += "<li class=\"inf_li\">" + user_info_json.firstName + "</li>";
-        ulv.innerHTML += "<li class=\"inf_li\">" + user_info_json.lastName + "</li>";
-        ulv.innerHTML += "<li class=\"inf_li\">" + user_info_json.email + "</li>";
-        ulv.innerHTML += "<li class=\"inf_li\">" + user_info_json.middleName + "</li>";
-        ulv.innerHTML += "<li class=\"inf_li\">" + user_info_json.facultyName.faculty + "</li>";
-        ulv.innerHTML += "<li class=\"inf_li\">" + user_info_json.userCourse + "</li>";
-        ulv.innerHTML += "<li class=\"inf_li\">" + user_info_json.userGroup + "</li>";
-        let ulk2 = document.getElementById("buttt");
-        ulk2.innerHTML += "<button type=\"button\" id=\"but\" class=\"btn btn-secondary btn-lg btn-block\" onclick='onStudentPage()' style=\"margin-left: 35px; margin-bottom: 20px; height: 50px; width:280px\"></button>";
-        document.getElementById("but").innerHTML = "view ratings";
+        let ulk2 = document.getElementById("buttonRedirect");
+        ulk2.innerHTML += "<button type=\"button\" onclick='onStudentPage()' style='margin-top: 10px'>view ratings</button>";
     }else if(length == 4){
-        console.log("qq222");
-        ulk.innerHTML += "<li>First Name</li>"
-        ulk.innerHTML += "<li>Surname</li>"
-        ulk.innerHTML += "<li>Middle Name</li>"
+        details.innerHTML += "<div>First Name: </div>";
+        details.innerHTML += "<div>" + user_info_json.firstName + "</div>";
+        details.innerHTML += "<div>Surname: </div>";
+        details.innerHTML += "<div>" + user_info_json.lastName + "</div>";
+        details.innerHTML += "<div>Middle Name: </div>";
+        details.innerHTML += "<div>" + user_info_json.middleName + "</div>";
 
-
-        ulv.innerHTML += "<li class=\"inf_li\">" + user_info_json.firstName + "</li>";
-        ulv.innerHTML += "<li class=\"inf_li\">" + user_info_json.lastName + "</li>";
-        ulv.innerHTML += "<li class=\"inf_li\">" + user_info_json.middleName + "</li>";
-        let ulk2 = document.getElementById("buttt");
-        ulk2.innerHTML += "<button type=\"button\" id=\"but\" class=\"btn btn-secondary btn-lg btn-block\" onclick='onTeacherPage()' style=\"margin-left: 35px; margin-bottom: 20px; height: 50px; width:280px\"></button>";
-        document.getElementById("but").innerHTML = "rate students";
-        document.getElementById("spisok").style.marginTop = "30px";
+        let ulk2 = document.getElementById("buttonRedirect");
+        ulk2.innerHTML += "<button type=\"button\" onclick='onTeacherPage()' style='margin-top: 10px'>rate students</button>";
+        document.getElementById("list").style.marginTop = "30px";
     }else
     {
-        let ulk2 = document.getElementById("buttt");
-        ulk2.innerHTML += "<button type=\"button\" id=\"but\" class=\"btn btn-secondary btn-lg btn-block\" onclick='onAdminPage()' style=\"margin-left: 35px; margin-bottom: 20px; height: 50px; width:280px\"></button>";
-        document.getElementById("user_info").style.marginTop = "90px";
-        document.getElementById("spisok").style.marginTop = "50px";
-        document.getElementById("but").innerHTML = "admin panel";
+        let button = document.getElementById("buttonRedirect");
+        button.innerHTML += "<button type=\"button\" onclick='onAdminPage()' style='margin-top: 10px'>admin panel</button>";
+        document.getElementById("list").style.marginTop = "50px";
+        document.getElementById("but").innerHTML = "";
     }
 
-}
+};
 
 onAdminPage = () => {
     document.location.href = "/register";
-}
+};
 
 onStudentPage = () => {
     document.location.href = "/student";
-}
+};
 
 onTeacherPage = () => {
     document.location.href = "/teacher";
-}
+};
 
 logout = () => {
     localStorage.clear();
     document.location.href = "/login";
-}
+};
 load();

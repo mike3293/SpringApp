@@ -66,7 +66,7 @@ async function addSubject(){
         document.location.href = "/login";
     }
     let subjName = document.getElementById("addSubjectName").value;
-    console.log(subjName)
+    console.log(subjName);
     await fetch("/api/v1/admin/addSubject",
         {
             method: 'POST',
@@ -263,14 +263,23 @@ setSubjects();
 setFaculties();
 
 function changeOnTeacherForm(){
-    document.getElementById("student-div").style.display = "none";
-    document.getElementById("teacher-div").style.display = "block";
+    document.getElementById("student-div").style.height = "0";
+    document.getElementById("student-div").style.overflow = "hidden";
+    document.getElementById("teacher-div").style.height = "auto";
+    document.getElementById("teacher-div").style.overflow = "auto";
 }
 
 function changeOnStudentForm(){
-    document.getElementById("student-div").style.display = "block";
-    document.getElementById("teacher-div").style.display = "none";
+    document.getElementById("student-div").style.height = "auto";
+    document.getElementById("student-div").style.overflow = "auto";
+    document.getElementById("teacher-div").style.height = "0";
+    document.getElementById("teacher-div").style.overflow = "hidden";
 }
-hide_result = () =>{
+hideResult = () =>{
     document.getElementById("res").innerHTML = "";
-}
+};
+
+logout = () => {
+    localStorage.clear();
+    document.location.href = "/login";
+};

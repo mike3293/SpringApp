@@ -1,0 +1,17 @@
+.common-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: dodgerblue;
+    padding: 5px 20px;
+    margin: -8px -8px 30px;
+    height: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    color: whitesmoke;
+}
+
+.vertical-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-row-gap: 10px;
+}

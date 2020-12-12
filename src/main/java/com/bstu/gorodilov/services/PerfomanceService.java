@@ -58,9 +58,9 @@ public class PerfomanceService implements IPerfomanceService {
         SimpleMailMessage message = new SimpleMailMessage();
 
         message.setTo(MyConstants.TO_EMAIL);
-        //message.setTo(user1.getEmail());
-        message.setSubject("СДО BSTU");
-        message.setText(String.format("Предмет: %s; Оценка: %d; %s",rateDto.getSubject(), rateDto.getMark(), rateDto.getDescription()));
+
+        message.setSubject("New mark notification");
+        message.setText(String.format("Subject: %s; Mark: %d; Description: %s",rateDto.getSubject(), rateDto.getMark(), rateDto.getDescription()));
 
         this.emailSender.send(message);
     }

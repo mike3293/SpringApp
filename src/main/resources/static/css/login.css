@@ -1,0 +1,17 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    width: 300px;
+
+    margin: auto;
+}
+
+.login__username {
+    margin-bottom: 10px;
+}
+
+.login-actions {
+    display: flex;
+    flex-direction: row-reverse;
+}

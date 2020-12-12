@@ -1,0 +1,19 @@
+.register__header {
+    margin-bottom: 20px;
+}
+
+.register-field-set {
+    display: grid;
+    grid-gap: 10px 10px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.register-field-set-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.register-field-set-field__error {
+    color: red;
+}

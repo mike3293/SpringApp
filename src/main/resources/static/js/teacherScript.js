@@ -90,6 +90,7 @@ load();
 };
 
 async function rate(){
+    document.getElementById("res").innerHTML = "";
 
     let mark = document.getElementById("mark").value;
     let description = document.getElementById("description").value;
@@ -99,7 +100,8 @@ async function rate(){
         let subject = document.getElementById("subj").innerText;
         let jwt = localStorage.getItem("jwt");
         if (username != null) {
-            await fetch("/api/v1/teachers/rateStudent",
+            document.getElementById("res").innerHTML = "loading...";
+            const result = await fetch("/api/v1/teachers/rateStudent",
                 {
                     method: 'POST',
                     headers: {
@@ -114,6 +116,12 @@ async function rate(){
                         description: description
                     })
                 });
+            if(result.status === 201)
+            {
+                document.getElementById("res").innerHTML = "mark added";
+            } else {
+                document.getElementById("res").innerHTML = "error occurred";
+            }
         }
     }
 }
