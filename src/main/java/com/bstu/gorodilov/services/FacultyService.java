@@ -1,15 +1,12 @@
 package com.bstu.gorodilov.services;
 
 import com.bstu.gorodilov.model.Faculty;
-import com.bstu.gorodilov.model.Status;
-import com.bstu.gorodilov.model.Subject;
 import com.bstu.gorodilov.repositories.IFacultyRepository;
 import com.bstu.gorodilov.services.serviceInterfaces.IFacultyService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -32,7 +29,6 @@ public class FacultyService implements IFacultyService {
     public void addFaculty(String facultyName) {
         Faculty faculty = new Faculty();
         faculty.setFaculty(facultyName);
-        log.info("FacultyService : add Faculty");
         this.facultyRepository.save(faculty);
     }
 }

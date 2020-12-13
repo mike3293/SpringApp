@@ -1,6 +1,7 @@
 package com.bstu.gorodilov.Validator;
 
 
+import com.bstu.gorodilov.aop.LogExecutionTime;
 import com.bstu.gorodilov.forms.RegistrationTeacherModel;
 import com.bstu.gorodilov.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class TeacherValidator implements Validator {
     }
 
     @Override
+    @LogExecutionTime
     public void validate(Object o, Errors errors) {
         RegistrationTeacherModel user = (RegistrationTeacherModel) o;
 

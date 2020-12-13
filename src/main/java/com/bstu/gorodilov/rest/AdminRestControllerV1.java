@@ -1,5 +1,6 @@
 package com.bstu.gorodilov.rest;
 
+import com.bstu.gorodilov.aop.LogExecutionTime;
 import com.bstu.gorodilov.dto.AdminUserDto;
 import com.bstu.gorodilov.dto.TeacherDto;
 import com.bstu.gorodilov.dto.TeacherToGroupDto;
