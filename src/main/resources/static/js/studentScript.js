@@ -1,7 +1,7 @@
 function renderMark(el) {
     return "        <div style='display: flex;'>\n" +
-        "            <h5>Оценка: "+ el.mark +"</h5>\n" +
-        "            <h5 style='margin-left: 20px'>Описание: "+ el.discription +"</h5>\n" +
+        "            <h5>Mark: "+ el.mark +"</h5>\n" +
+        "            <h5 style='margin-left: 20px'>Description: "+ el.discription +"</h5>\n" +
         "        </div>"
 }
 
@@ -123,8 +123,8 @@ next = async () =>{
 };
 
 checkDisabled = (user_info_json) =>  {
-    document.getElementById("previous").classList.add("disabled");
-    document.getElementById("next").classList.add("disabled");
+    document.getElementById("previous").classList.disabled = true;
+    document.getElementById("next").classList.disabled = true;
     if(page == 0) {
         document.getElementById("previous").disabled = true;
     }else {
