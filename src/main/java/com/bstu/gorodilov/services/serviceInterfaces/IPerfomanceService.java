@@ -9,7 +9,6 @@ import com.bstu.gorodilov.services.PerfomanceService;
 import java.util.List;
 
 public interface IPerfomanceService {
-    List<PerfomanceService> findAll();
     void rate(RateDto rateDto);
     List<String> findByUser(String username);
 }
